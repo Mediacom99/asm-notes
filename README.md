@@ -68,7 +68,11 @@ With the following data types:
 	
 Initialized arrays can be defined comma separated: 
 ``array1 dd 100, 200, 300, 400  ; 4 element array``
+
+
 ``stringhina db "Hello World!" ; string``
+
+
 ``singlechar db "A"``
 
 #### BSS (Uninitialized) section
