@@ -1,0 +1,38 @@
+#!/usr/bin/bash
+
+# Assemble, link script. First argument is the name of
+# asm source file which will be used as the executable file's name.
+
+if [ -z $1 ] || [ -z $2 ]; then
+   echo "Usage: ./asm64 <command> <name-of-asm-source>"
+   echo "Possible commands are:"
+   # echo "a --> assemble only (with list)"
+   # echo "l --> link only"
+   echo "al --> assemble (with list) and link, produce executable"
+   exit
+fi
+
+# Check that the main file exists and it's provided
+# with correct format. 
+if [ ! -e $2.asm ]; then
+   echo "Cannot find main source file $2.asm"
+   echo "Do not enter file extension when passing name as argument"
+   exit
+fi
+
+# Assemble and link, produce executable, list and object file
+if [ $1 == "al" ]; then
+   echo "Assembling and linking..."
+   if [ ! -d ./$2 ]; then
+      mkdir ./$2
+   fi
+   mv ./$2.asm ./$2/ 
+   cd ./$2
+   yasm -Worphan-labels -g dwarf2 -f elf64 $2.asm -l $2.lst
+   ld -g -o $2 $2.o
+   exit
+fi
+
+
+echo "Command not recognized, run without arguments for help."
+exit
