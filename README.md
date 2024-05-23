@@ -139,4 +139,8 @@ the instruction ``lea`` Load Effective Address like so:
 How can I convert between data types ? It depends if its widening, narrowing,
 signed or unsigned.
 
+**Narrowing Conversions**
+
+
+
 
