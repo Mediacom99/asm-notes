@@ -10,14 +10,10 @@ Throughout these notes all the compiling has been done using the yasm assembler 
 default GNU linker ld, these two following commands were used:
 
 1. Compiling:
-		```yasm -g dwarf2 -f elf64 example.asm -l example.lst```
-		
-		
+		`` yasm -g dwarf2 -f elf64 example.asm -l example.lst``
 		This command generates both the object file and the list file, with debug info.
 2. Linking:
 		``` ld -g -o example example1.o example2.o exampl3.o ... ```
-		
-		
 		This links the example.o object file with debug info into the exec file example.
 3. Debugging: gdb, GNU Debugger
 
