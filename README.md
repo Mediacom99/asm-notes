@@ -118,12 +118,16 @@ The only way to access memory is by using brackets. The name of the variable
 holds the address of the variable, so:
 
 `` mov eax, dword [myVar] ; copying the content of myVar into eax ``
+
+
 `` mov eax, dword myVar   ; copying the mem address of myVar into eax``
 
 There is also another way to find the mem address of a variable, by using
 the instruction ``lea`` Load Effective Address like so:
 
 `` lea rax, byte [bVar] ; load mem address of 1byte of bVar into rax``
+
+
 `` lea rbx, dword [dVar] ; load mem address of 4 bytes addresses into rbx``
 
 ### Conversion instructions
